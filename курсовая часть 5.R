@@ -21,6 +21,8 @@ dist_disease <- dist(disease_table, method = "euclidean")
 hc_norm <- hclust(dist_norm, method = "complete")
 hc_disease <- hclust(dist_disease, method = "complete")
 
-tanglegram(hc_norm, hc_disease)
+png("name1.png", width = 15, height = 20, res = 300, units = "cm")
+tanglegram(hc_norm, hc_disease, lab.cex = 0.5)
+dev.off()
 
 cor_cophenetic(hc_norm, hc_disease) # 0,5702325
