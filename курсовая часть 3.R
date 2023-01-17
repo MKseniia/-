@@ -1,6 +1,7 @@
 library(tidygraph)
 library(ggraph)
 library(readr)
+library(dplyr)
 
 corr_norm_p <- read_csv("корреляция здоровые, p.csv")
 corr_disease_p <- read_csv("корреляция больные, p.csv")
@@ -17,7 +18,8 @@ network_norm <- ggraph(norm_graph) +
   theme_graph() +
   scale_edge_color_gradient2(low = "blue", high = "red", mid = "white")
 
-ggsave("corr_network_norm.png", network_norm, scale = 5)
+ggsave("corr_network_norm.png", network_norm, width = 70, height = 70, units="cm")
+
 
 
 disease_graph <- as_tbl_graph(corr_disease_p, directed = FALSE)
